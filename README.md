@@ -1,6 +1,6 @@
 # R tvd Package #
 
-A package to implement Total Variation Denoising in R.  For basic information on the technique, see the [Wikipedia article for TVD](http://en.wikipedia.org/wiki/Total_variation_denoising).
+A package to implement Total Variation Denoising in R.  For basic information on the technique, see the Wikipedia article [Total Variation Denoising](http://en.wikipedia.org/wiki/Total_variation_denoising).
 
 ## Installation ##
 
