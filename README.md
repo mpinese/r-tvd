@@ -19,5 +19,5 @@ To install the latest development version, use:
 ```
 #!R
 # install.packages("devtools")
-install_bitbucket("r-tvd", "marpin")
+devtools::install_bitbucket("r-tvd", "marpin")
 ```
