@@ -13,12 +13,12 @@
 #' TVD with regularization parameter lambda, and returns a
 #' denoised version of y.
 #'
-#' 1D TVD is a filtering technique for time series that attempts
+#' 1D TVD is a filtering technique for a sequential univariate signal that attempts
 #' to find a vector x_tvd that approximates a noisy vector y, as:
-#'   x_tvd = argmin_x(E(x, y) + lambda*V(x))
+#'   \deqn{x_{tvd} = argmin_{x}(E(x, y) + \lambda V(x))}{x_tvd = argmin_x(E(x, y) + \lambda*V(x))}
 #' where E(x, y) is a loss function measuring the error in approximating
 #' y with x, and V(x) is the total variation of x:
-#'   V(x) = sum(|x_{i+1} - x_i|)
+#'   \deqn{V(x) = sum(|x_{i+1} - x_{i}|)}
 #'
 #' TVD is particularly well-suited to recovering piecewise constant 
 #' signals.  The degree of approximation is controlled by the parameter
@@ -31,7 +31,7 @@
 #' length 2^32 - 1 and shorter.
 #' 
 #' @param y a numeric vector of sequential noisy data values
-#' @param lambda the total variance penalty coefficient
+#' @param lambda the total variation penalty coefficient
 #' @param method a string indicating the algorithm to use for
 #'   denoising.  Currently only supports method "Condat"
 #'
