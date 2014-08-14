@@ -116,11 +116,12 @@ SquaredError <- function(x, y)
 #' legend("topleft", legend = c("Original", "Noisy", "Denoised Min", "Denoised 1SE"), 
 #'   col = c("blue", "black", "red", "orange"), lty = c("solid", "solid", "solid", "solid"), 
 #'   lwd = c(2, 0, 1, 1), pch = c(NA, 19, NA, NA), pt.cex = c(NA, 0.3, NA, NA), inset = 0.05)
-cv.tvd1d <- function(y, lambdas = NULL, method = c("Condat"), nfolds = 10, lossfunc = c("SquaredError"))
+cv.tvd1d <- function(y, lambdas = NULL, method = c("Condat"), nfolds = 10, lossfunc = c("MatchMethod", "SquaredError"))
 {
 	method = match.arg(method)
+	lossfunc = match.arg(lossfunc)
 
-	if (is.null(lossfunc))
+	if (lossfunc == "MatchMethod")
 	{
 		# Determine the loss function to use based on the TVD method selected
 		if (method == "Condat")
@@ -128,8 +129,6 @@ cv.tvd1d <- function(y, lambdas = NULL, method = c("Condat"), nfolds = 10, lossf
 			lossfunc = "SquaredError"
 		}
 	}
-
-	lossfunc = match.arg(lossfunc)
 
 	if (is.null(lambdas))
 	{
