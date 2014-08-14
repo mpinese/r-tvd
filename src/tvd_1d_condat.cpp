@@ -9,8 +9,7 @@
 #include <Rcpp.h>
 
 
-// Rcpp still uses ints as indices and size objects internally.
-// Hopefully this will be upgraded soon.
+// Rcpp uses ints as indices and size objects internally.
 typedef int Rcpp_index;
 
 

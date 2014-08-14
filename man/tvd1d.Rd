@@ -3,7 +3,7 @@
 \alias{tvd1d}
 \title{Perform Total Variation Denoising on a 1-Dimensional Signal}
 \usage{
-tvd1d(y, lambda, method = "Condat")
+tvd1d(y, lambda, method = c("Condat"))
 }
 \arguments{
 \item{y}{a numeric vector of sequential noisy data values}
@@ -34,7 +34,7 @@ TVD is particularly well-suited to recovering piecewise constant
 signals.  The degree of approximation is controlled by the parameter
 lambda: for lambda = 0, x_tvd = y, and as lambda increases, x_tvd
 contains increasingly fewer value transitions, until, for a high
-enough value, it is constant.
+enough value, it is nearly constant.
 
 Currently only implements Condat's fast squared-error loss TVD
 algorithm (method "Condat"), which is restricted to vectors of
@@ -47,7 +47,7 @@ x = rep(c(1, 2, 3, 4, 2, 4, 3, 2, 1), each = 100)
 ## Create a noisy version of the signal
 y = x + rnorm(length(x), sd = 0.5)
 
-## Denoise the signal by Condat's methodlines(x.denoised, col = "red", lwd = 1)
+## Denoise the signal by Condat's method
 x.denoised = tvd1d(y, lambda = 10, method = "Condat")
 
 ## Plot the original signal, the noisy signal, and the denoised signal
